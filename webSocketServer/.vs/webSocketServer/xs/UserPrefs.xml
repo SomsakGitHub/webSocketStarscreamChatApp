@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{09EC1DB4-02C4-4F37-8CCC-947CEDF8E6F6}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="webSocketServer/Startup.cs">
     <Files>
-      <File FileName="webSocketServer/Startup.cs" Line="73" Column="1" />
+      <File FileName="webSocketServer/Startup.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

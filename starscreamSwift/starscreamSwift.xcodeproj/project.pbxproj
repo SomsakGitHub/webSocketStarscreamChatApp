@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		AA38EA8626B1057B00528CA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA38EA8426B1057B00528CA9 /* Main.storyboard */; };
 		AA38EA8826B1057C00528CA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA38EA8726B1057C00528CA9 /* Assets.xcassets */; };
 		AA38EA8B26B1057C00528CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA38EA8926B1057C00528CA9 /* LaunchScreen.storyboard */; };
+		AA38EA9326B119FB00528CA9 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38EA9226B119FB00528CA9 /* ChatTableViewCell.swift */; };
 		FFB16CDE43BBE4C5954C3EBF /* Pods_starscreamSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C542086D41CAA3BB00805D /* Pods_starscreamSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		AA38EA8726B1057C00528CA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA38EA8A26B1057C00528CA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA38EA8C26B1057C00528CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA38EA9226B119FB00528CA9 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		C172B041D4A766C851F83228 /* Pods-starscreamSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starscreamSwift.release.xcconfig"; path = "Target Support Files/Pods-starscreamSwift/Pods-starscreamSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				AA38EA8726B1057C00528CA9 /* Assets.xcassets */,
 				AA38EA8926B1057C00528CA9 /* LaunchScreen.storyboard */,
 				AA38EA8C26B1057C00528CA9 /* Info.plist */,
+				AA38EA9226B119FB00528CA9 /* ChatTableViewCell.swift */,
 			);
 			path = starscreamSwift;
 			sourceTree = "<group>";
@@ -88,7 +91,6 @@
 				74FF0BBC4020DB375AC69109 /* Pods-starscreamSwift.debug.xcconfig */,
 				C172B041D4A766C851F83228 /* Pods-starscreamSwift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA38EA8326B1057B00528CA9 /* ViewController.swift in Sources */,
+				AA38EA9326B119FB00528CA9 /* ChatTableViewCell.swift in Sources */,
 				AA38EA7F26B1057B00528CA9 /* AppDelegate.swift in Sources */,
 				AA38EA8126B1057B00528CA9 /* SceneDelegate.swift in Sources */,
 			);

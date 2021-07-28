@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/itd02/Desktop/iosDotnetChatApp/webSocketServer/webSocketServer/webSocketServer.csproj": {}
+    "/Users/itd02/Desktop/webSocketStarscreamChatApp/webSocketServer/webSocketServer/webSocketServer.csproj": {}
   },
   "projects": {
-    "/Users/itd02/Desktop/iosDotnetChatApp/webSocketServer/webSocketServer/webSocketServer.csproj": {
+    "/Users/itd02/Desktop/webSocketStarscreamChatApp/webSocketServer/webSocketServer/webSocketServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/itd02/Desktop/iosDotnetChatApp/webSocketServer/webSocketServer/webSocketServer.csproj",
+        "projectUniqueName": "/Users/itd02/Desktop/webSocketStarscreamChatApp/webSocketServer/webSocketServer/webSocketServer.csproj",
         "projectName": "webSocketServer",
-        "projectPath": "/Users/itd02/Desktop/iosDotnetChatApp/webSocketServer/webSocketServer/webSocketServer.csproj",
+        "projectPath": "/Users/itd02/Desktop/webSocketStarscreamChatApp/webSocketServer/webSocketServer/webSocketServer.csproj",
         "packagesPath": "/Users/itd02/.nuget/packages/",
-        "outputPath": "/Users/itd02/Desktop/iosDotnetChatApp/webSocketServer/webSocketServer/obj/",
+        "outputPath": "/Users/itd02/Desktop/webSocketStarscreamChatApp/webSocketServer/webSocketServer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/itd02/.config/NuGet/NuGet.Config"

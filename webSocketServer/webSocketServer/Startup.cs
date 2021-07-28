@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.WebSockets;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,16 +29,21 @@ namespace webSocketServer
 
             app.UseRouting();
 
-            var wsOption = new WebSocketOptions { KeepAliveInterval = TimeSpan.FromSeconds(120) };
-            app.UseWebSockets(wsOption);
-            app.Use(async (context, next) => {
-                if(context.Request.Path == "/send")
+            var webSocketOptions = new WebSocketOptions()
+            {
+                KeepAliveInterval = TimeSpan.FromSeconds(120),
+            };
+
+            app.UseWebSockets(webSocketOptions);
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path == "/ws")
                 {
-                    if(context.WebSockets.IsWebSocketRequest)
+                    if (context.WebSockets.IsWebSocketRequest)
                     {
-                        using(WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync())
+                        using (WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync())
                         {
-                            await Send(context, webSocket);
+                            await Echo(context, webSocket);
                         }
                     }
                     else
@@ -51,22 +54,20 @@ namespace webSocketServer
             });
         }
 
-        private async Task Send(HttpContext context, WebSocket webSocket)
+        private async Task Echo(HttpContext context, WebSocket webSocket)
         {
             var buffer = new byte[1024 * 4];
-            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), System.Threading.CancellationToken.None);
-            if (result != null)
+            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            while (!result.CloseStatus.HasValue)
             {
-                while (!result.CloseStatus.HasValue)
-                {
-                    string msg = Encoding.UTF8.GetString(new ArraySegment<byte>(buffer, 0, result.Count));
-                    Console.WriteLine($"client says: {msg}");
-                    await webSocket.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes($"Server says: {DateTime.UtcNow:f} ")), result.MessageType, result.EndOfMessage, System.Threading.CancellationToken.None);
-                    result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), System.Threading.CancellationToken.None);
-                    //Console.WriteLine(result);
-                }
+                //string msg = Encoding.UTF8.GetString(new ArraySegment<byte>(buffer, 0, result.Count));
+                //            Console.WriteLine($"client says: {msg}");
+                //await webSocket.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes($"Server says: {DateTime.UtcNow:f} ")), result.MessageType, result.EndOfMessage, System.Threading.CancellationToken.None);
+                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
+
+                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             }
-            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, System.Threading.CancellationToken.None);
+            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
         }
     }
 }
